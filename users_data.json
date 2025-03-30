@@ -1,0 +1,32 @@
+{
+    "931558099": {
+        "username": "YourTinyT",
+        "first_name": "Таня",
+        "last_name": null,
+        "region": "тёплый",
+        "location": {
+            "latitude": 41.639513,
+            "longitude": 41.613087
+        }
+    },
+    "5172979121": {
+        "username": "elena19_1988",
+        "first_name": "Елена",
+        "last_name": null,
+        "region": "холодный",
+        "location": {
+            "latitude": 44.098573,
+            "longitude": 43.210246
+        }
+    },
+    "791657600": {
+        "username": "natalya_gorh",
+        "first_name": "Наталья Горх",
+        "last_name": null,
+        "region": "тёплый",
+        "location": {
+            "latitude": 44.041308,
+            "longitude": 42.998952
+        }
+    }
+}
