@@ -66,8 +66,18 @@ def load_users():
         print(f"Ошибка загрузки данных: {response.status_code}")
         return {}
 
-# Запись данных пользователей в файл
+# Функция для записи данных в локальный файл users_data.json
+def save_to_local_file(users, filename="users_data.json"):
+    try:
+        with open(filename, 'w', encoding='utf-8') as file:
+            json.dump(users, file, ensure_ascii=False, indent=4)
+        print(f"Данные успешно сохранены локально в файл: {filename}")
+    except Exception as e:
+        print(f"Ошибка при сохранении данных в локальный файл: {e}")
+
+# Обновленная функция для сохранения данных
 def save_users(users):
+    # Сохранение на JSONBin
     url = f'https://api.jsonbin.io/v3/b/{BIN_ID}'
     headers = {
         'X-Master-Key': API_KEY,
@@ -75,11 +85,12 @@ def save_users(users):
     }
     response = requests.put(url, headers=headers, json=users)
     if response.status_code == 200:
-        print("Данные успешно сохранены.")
+        print("Данные успешно сохранены на JSONBin.")
     else:
-        print(f"Ошибка сохранения данных: {response.status_code}")
-
-# Экранирование символов для MarkdownV2, исключая символы, которые не требуют экранирования.
+        print(f"Ошибка сохранения данных на JSONBin: {response.status_code}")
+    
+    # Сохранение в локальный файл users_data.json
+    save_to_local_file(users)
 
 
 def escape_markdown_v2(text: str) -> str:
