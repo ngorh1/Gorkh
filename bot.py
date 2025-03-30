@@ -1,5 +1,5 @@
-import json
 import os
+import json
 import re
 import time
 from telegram import Update, KeyboardButton, ReplyKeyboardMarkup
@@ -8,15 +8,18 @@ import aiohttp
 import logging
 import asyncio
 import requests
+from dotenv import load_dotenv
 
+# Загружаем переменные окружения из .env файла
+load_dotenv()
 
-# Включаем логирование для отладки
+# Настройка логирования для отладки
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
 
-# Настройка логирования
+# Дополнительная настройка логирования
 logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s',
     level=logging.DEBUG,
@@ -26,13 +29,15 @@ logging.basicConfig(
     ]
 )
 
-# Токен бота
+# Токен бота из .env
 TOKEN = os.getenv("TELEGRAM_TOKEN")
-# Токен OpenWeatherMap
+
+# Токен OpenWeatherMap сохранён в коде (оставляем как есть)
 WEATHER_API_KEY = '53133f8c78bc5bfe64e7ef63e7d4ec32'
 
-BIN_ID = "67e45fdf8960c979a5790c51"  # Замените на ваш Bin ID
-API_KEY = "$2a$10$pm/zOtlQJc2QYfIKpqHDs.X17aIFKmj/r9udRdyF31KLkohiQe/.m"  # Замените на ваш API Key
+# Bin ID и API Key из .env
+BIN_ID = os.getenv("BIN_ID")
+API_KEY = os.getenv("API_KEY")
 
 # Путь к файлу с данными пользователей
 USERS_FILE = 'users_data.json'
